@@ -53,6 +53,7 @@ public class ImageController {
         Image image = imageService.getImage(imageId);
         model.addAttribute("image", image);
         model.addAttribute("tags", image.getTags());
+        model.addAttribute("comments", image.getComments());
         return "images/image";
     }
 
@@ -106,6 +107,7 @@ public class ImageController {
             String error = "You are not the owner of the image, thus you cannot edi it";
             model.addAttribute("editError", error);
             model.addAttribute("tags", image.getTags());
+            model.addAttribute("comments", image.getComments());
             return "images/image";
         }
         return "images/edit";
